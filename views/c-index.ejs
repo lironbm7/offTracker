@@ -1,0 +1,107 @@
+<%- include('include/_c-header') %>
+<head><title>Clothing Overview | offTracker</title></head>
+<header>
+    <div class="nav">
+        <a href="/c-index"><img src="img/c-logo.png" class="logo" alt="logo"></a>
+            <ul class="nav__links">
+                <li><a href="/c-index" id="current-page">Clothing</a></li>
+                <li><a href="/f-index">Fragrances</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    <a class="github" href="https://github.com/lironbm7" 
+    target="_blank"><button class="github">GitHub</button></a>
+    </div>
+</header>
+<hr id="header-hr">
+<div class="div-newitem">
+    <span class="header-newitem" title="Add a new clothing item"><a href="/add-clothing" id="add"><i class="fa-solid fa-square-plus"></i></a></span>
+    <span class="header-newitem" title="Scan for price changes"><a href="/scanprices" id="scan" ><i class="fa-solid fa-sync"></i></a></span>
+</div>
+
+<div class="grid-title">Currently on Sale <i class="fa-solid fa-tag"></i></div>
+<div class="prod-grid">
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if(clothings[i].fprice < clothings[i].alert) { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= clothings[i].url %>" title="Open item in new tab" target="_blank"><img src="<%= clothings[i].imgurl %>"></a>
+                    <div class="icon-edit"><a href="/update-clothing?id=<%= clothings[i]._id%>" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= clothings[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <!-- calculate discount here -->
+                    <span class="data-discount"><%= (parseFloat(1-(clothings[i].fprice / clothings[i].alert))*100).toFixed(0)%>% OFF</span>
+                    <span class="data-designer"><%= clothings[i].designer %></span>
+                    <span class="data-title"><%= clothings[i].title %></span>
+                    <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
+                    <% const today = new Date(); %>
+                    <% const datescanned = new Date(clothings[i].lastupdate); %>
+                    <% if(today.toDateString() == datescanned.toDateString()) { %>
+                        <span class="updated" title="Price scanned today"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(today.toDateString() != datescanned.toDateString()) { %>
+                        <span class="notupdated" title="Price was not scanned today"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                    <% } %>
+                    <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<div class="grid-title">Being Tracked <i class="fa-solid fa-bell"></i></div>
+<div class="prod-grid">
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if((clothings[i].fprice >= clothings[i].alert) && (clothings[i].alert > 0)) { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= clothings[i].url %>" title="Open item in new tab" target="_blank"><img src="<%= clothings[i].imgurl %>"></a>
+                    <div class="icon-edit"><a href="/update-clothing?id=<%= clothings[i]._id%>" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= clothings[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-designer"><%= clothings[i].designer %></span>
+                    <span class="data-title"><%= clothings[i].title %></span>
+                    <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
+                    <% const today = new Date(); %>
+                    <% const datescanned = new Date(clothings[i].lastupdate); %>
+                    <% if(today.toDateString() == datescanned.toDateString()) { %>
+                        <span class="updated" title="Price scanned today"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(today.toDateString() != datescanned.toDateString()) { %>
+                        <span class="notupdated" title="Price was not scanned today"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                    <% } %>
+                    <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<div class="grid-title">Alerts Disabled <i class="fa-solid fa-bell-slash"></i></div>
+<div class="prod-grid">
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if(clothings[i].alert <= 0) { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= clothings[i].url %>" title="Open item in new tab" target="_blank"><img src="<%= clothings[i].imgurl %>"></a>
+                    <div class="icon-edit"><a href="/update-clothing?id=<%= clothings[i]._id%>" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= clothings[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-designer"><%= clothings[i].designer %></span>
+                    <span class="data-title"><%= clothings[i].title %></span>
+                    <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
+                    <% const today = new Date(); %>
+                    <% const datescanned = new Date(clothings[i].lastupdate); %>
+                    <% if(today.toDateString() == datescanned.toDateString()) { %>
+                        <span class="updated" title="Price scanned today"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(today.toDateString() != datescanned.toDateString()) { %>
+                        <span class="notupdated" title="Price was not scanned today"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+<div class="bottom-text"><a id="bottom-text" href="#top"><i class="fa-solid fa-arrow-up"></i> Back to top</a></div>
+<%- include('include/_footer') %>

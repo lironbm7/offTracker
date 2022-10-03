@@ -1,0 +1,94 @@
+/* Global Header */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
+
+/* formatting boundaries */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply this to everything */
+body {
+    background: #ffffff;
+    font-family: 'Barlow', sans-serif;
+
+}
+
+/* Variables */
+:root{
+    --highlight: #37d3ef;
+    --btn-hover: #8edcdc;
+    --highlight2: #ffa01c;
+    --btn-hover2: #ffb856;
+}
+
+header, .github { 
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+li, a, .github {
+    text-decoration: none;
+    color: #000
+}
+
+.github {
+    right: 0;
+}
+
+header .nav{
+    display: flex;
+    max-width: 1024px;
+    max-height: 20px;
+    margin: 36px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px auto;
+}
+
+.logo {
+    cursor: pointer;
+    width: 300px;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+#current-page {
+    cursor: default;
+}
+
+::placeholder {
+    color: #bbb;
+}
+
+@media (max-width: 800px) {
+    .logo {
+        width: 120px;
+    }
+    .github {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 566px) {
+    ul.nav__links li {
+        display: block;
+    }
+}

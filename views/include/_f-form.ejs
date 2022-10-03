@@ -1,0 +1,40 @@
+    <div class="frag-data">
+        <form action="/api/frags" method="POST" id="add_frag">
+            <div class="frag-url">
+                <label for="url">Fragrantica URL</label>
+                <input type="hidden" name="id" value="">
+                <input type="text" name="url" id="url" value="" autocomplete="off" required 
+                placeholder="https://www.fragrantica.com/perfume/..">
+            </div>
+            <div>
+                <label for="ownership" id="title">Status</label>
+                <div class="radio">
+                    <input type="radio" name="ownership" id="radio-1" value="own" required>
+                    <label for="radio-1" class="radio-label">I already have it</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="ownership" id="radio-2" value="want">
+                    <label for="radio-2" class="radio-label">I want to buy it</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="ownership" id="radio-3" value="test">
+                    <label for="radio-3" class="radio-label">I want to test it</label>
+                </div>
+            </div>
+            
+            <hr>
+
+            <div class="optional-container">
+                <p id="optional-header">(Optional)</p>
+                <div>
+                    <label for="link">Purchase Link:</label>
+                    <input type="url" name="link" id="link" autocomplete="off"
+                    placeholder="KSP.co.il is a recommended link source">
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="btn" type="submit" id="btn-submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
