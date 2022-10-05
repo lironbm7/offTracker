@@ -1,10 +1,5 @@
-This version of offTracker is a Client version with only Guest permissions / authorization.
-Therefore, users under this repo are only authorized to access and read from the database and not write changes to it.
-* The whole scraping process is seperately executed in another server which includes a back-end for scraping and CRUD functionalities.
-
-The reasons behind creating a Guest (viewer) version of offTracker:
-> Respecting companies' / websites' Terms & Conditions and not using web scrapers / crawlers for commercial / non-private use.
-(The only way to create new items and track them is by hosting the program independently and creating a seperate MongoDB Cluster/database and writing data to it, modifying controller.js to target specific website elements for scraping)
-
-> Showcasing the capabilities of offTracker without requiring a user to create a database and modify it, by revealing the database I (the program writer) personally use on a daily basis.
-(Users can see database changes in real-time but are unable to create/delete/modify elements, but only read/view them)
+This version of offTracker offers Limited Code with Read Only database permissions, excluding JavaScript scraping methods and CRUD operations.
+* The whole scraping process is seperately executed in a standalone server.
+Source Code is limited due to:
+1. Respecting websites' Privacy / Terms & Conditions and not publicly sharing crawler / scraping code that targets their website data.
+2. Read Only access to my personal real-time Clothing/Frag database, to showcase the capabilities of offTracker without requiring the user to create a database just to see the program's functionality. 
