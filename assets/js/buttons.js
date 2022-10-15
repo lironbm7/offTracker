@@ -28,3 +28,7 @@ if(window.location.pathname == '/c-index' || window.location.pathname == '/') {
 if(window.location.pathname == '/about') {
     $('.about').attr("id", "current-page"); // highlight About header text
 }
+
+if(window.location.pathname.includes('update-frag') || window.location.pathname.includes('add-frag')) {
+    $('.logo').attr("src", "img/f-logo.png");  // offTracker logo in cyan
+}
