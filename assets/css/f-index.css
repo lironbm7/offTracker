@@ -45,7 +45,7 @@ header ul li a#current-page {
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    margin: 1.3em 0em 1.3em 0em;
+    margin: 1.0em 0em 1.3em 0em;
     color: #444;
 }
 
@@ -197,17 +197,22 @@ header ul li a#current-page {
 }
 
 
-/* JUMP TO TOP */
-.bottom-text, a#bottom-text {
+/* Jump to top */
+.bottom-text, a#bottom-text{
     text-align: center;
     margin: 1.3em 0em 1.3em 0em;
     color: #818181fd;
-    cursor: pointer; 
     transition: all 0.3s ease 0s;
+}
 
+.bottom-text p {
+    cursor: default;
+}
+
+.bottom-text a {
+    cursor: pointer; 
 }
 
 a#bottom-text:hover {
-    color: var(--highlight);;
+    color: var(--highlight2);
 }
-

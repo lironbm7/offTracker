@@ -1,19 +1,12 @@
 <%- include('include/_c-header') %>
 <head><title>Clothing Overview | offTracker</title></head>
-<header>
-    <div class="nav">
-        <a href="/c-index"><img src="img/c-logo.png" class="logo" alt="logo"></a>
-            <ul class="nav__links">
-                <li><a href="/c-index" id="current-page">Clothing</a></li>
-                <li><a href="/f-index">Fragrances</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
-    <a class="github" href="https://github.com/lironbm7" 
-    target="_blank"><button class="github">GitHub</button></a>
-    </div>
-</header>
-<hr id="header-hr">
+<div class="bottom-text">
+    <% let activeitems = 0; %>
+        <% for(i = 0; i < clothings.length; i++) { %>
+            <% if(clothings[i].alert > 0) activeitems++; %>
+        <% } %>
+        <p>Total <%= clothings.length %> &nbsp; | &nbsp; Tracking <%= activeitems %></p>
+</div>
 <div class="div-newitem">
     <span class="header-newitem" title="Add a new clothing item"><a href="/add-clothing" id="add"><i class="fa-solid fa-square-plus"></i></a></span>
     <span class="header-newitem" title="Scan for price changes"><a href="/scanprices" id="scan" ><i class="fa-solid fa-sync"></i></a></span>
@@ -38,9 +31,9 @@
                     <% const today = new Date(); %>
                     <% const datescanned = new Date(clothings[i].lastupdate); %>
                     <% if(today.toDateString() == datescanned.toDateString()) { %>
-                        <span class="updated" title="Price scanned today"> <i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else if(today.toDateString() != datescanned.toDateString()) { %>
-                        <span class="notupdated" title="Price was not scanned today"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                        <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
                     <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
                 </div>
@@ -66,9 +59,9 @@
                     <% const today = new Date(); %>
                     <% const datescanned = new Date(clothings[i].lastupdate); %>
                     <% if(today.toDateString() == datescanned.toDateString()) { %>
-                        <span class="updated" title="Price scanned today"> <i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else if(today.toDateString() != datescanned.toDateString()) { %>
-                        <span class="notupdated" title="Price was not scanned today"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                        <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
                     <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
                 </div>
@@ -94,9 +87,9 @@
                     <% const today = new Date(); %>
                     <% const datescanned = new Date(clothings[i].lastupdate); %>
                     <% if(today.toDateString() == datescanned.toDateString()) { %>
-                        <span class="updated" title="Price scanned today"> <i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else if(today.toDateString() != datescanned.toDateString()) { %>
-                        <span class="notupdated" title="Price was not scanned today"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                        <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
                 </div>
             </div>
@@ -104,6 +97,6 @@
     <% } %>
 </div>
 <div class="bottom-text">
-    <p>Total <%= clothings.length %> items</p><br>
-    <a id="bottom-text" href="#top"><i class="fa-solid fa-arrow-up"></i> Back to top</a></div>
+    <a id="bottom-text" href="#top"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+</div>
 <%- include('include/_footer') %>

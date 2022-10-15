@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');  // built-in node module
-// const cron = require('node-cron');  // attempt auto scan every 1hr (if IP blocked and couldnt finish previous scan)
+const cron = require('node-cron');  // attempt auto scan every 1hr (if IP blocked and couldnt finish previous scan)
 const connectDB = require('./server/connection');
 const app = express();
 
@@ -32,7 +32,12 @@ app.use('/', require('./server/router'));
 
 
 app.listen(PORT, () => {
-    console.log(`Server listening on PORT ${PORT}`);
+    console.log(`Server listening on :${PORT}`);
+    const controller = require('./server/controller');
+    controller.c_launchscan();
+    cron.schedule('*/10 * * * *', () => {
+        controller.c_launchscan();
+    });
 });
 
 app.use((req, res) => {
