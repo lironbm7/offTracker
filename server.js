@@ -32,7 +32,6 @@ app.use('/', require('./server/router'));
 
 app.listen(PORT, () => {
     console.log(`Server listening on :${PORT}`);
-    const controller = require('./server/controller');
 });
 
 app.use((req, res) => {
