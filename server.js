@@ -33,10 +33,6 @@ app.use('/', require('./server/router'));
 app.listen(PORT, () => {
     console.log(`Server listening on :${PORT}`);
     const controller = require('./server/controller');
-    controller.c_launchscan();
-    cron.schedule('*/10 * * * *', () => {
-        controller.c_launchscan();
-    });
 });
 
 app.use((req, res) => {
