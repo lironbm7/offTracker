@@ -1,10 +1,9 @@
 let fragdb = require('../server/f_model');
 let clothingdb = require('../server/c_model');
-const ACCESS_DENIED = 'You are not authorized to perform this action as a guest.';
 
 // FRAGRANCES
 exports.create = (req,res) => {    
-    res.send('<script>alert(ACCESS_DENIED); location = "/f-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/f-index"</script>');
 }
 
 exports.find = (req, res) => {
@@ -36,18 +35,18 @@ exports.find = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    res.send('<script>alert(ACCESS_DENIED); location = "/f-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/f-index"</script>');
 }
 
 exports.delete = (req, res) => {
-    res.send('<script>alert(ACCESS_DENIED); location = "/f-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/f-index"</script>');
 }
 
 
 
 // CLOTHING
 exports.c_create = (req,res) => {    
-    res.send('<script>alert(ACCESS_DENIED); location = "/c-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/c-index"</script>');
 }
 
 exports.c_find = (req, res) => {
@@ -79,17 +78,17 @@ exports.c_find = (req, res) => {
 }
 
 exports.c_update = (req, res) => {
-    res.send('<script>alert(ACCESS_DENIED); location = "/c-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/c-index"</script>');
 }
 
 exports.c_delete = (req, res) => {
-    res.send('<script>alert(ACCESS_DENIED); location = "/c-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/c-index"</script>');
 }
 
 exports.c_scanprices = (req, res) => {  // manual scan button
-    res.send('<script>alert(ACCESS_DENIED); location = "/c-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/c-index"</script>');
 }
 
 exports.c_launchscan = (req, res) => {  // initial scan when server starts
-    res.send('<script>alert(ACCESS_DENIED); location = "/c-index"</script>');
+    res.send('<script>alert("You are not authorized to perform this action as a guest."); location = "/c-index"</script>');
 }
