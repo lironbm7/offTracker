@@ -3,7 +3,6 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');  // built-in node module
-const cron = require('node-cron');  // attempt auto scan every 1hr (if IP blocked and couldnt finish previous scan)
 const connectDB = require('./server/connection');
 const app = express();
 
