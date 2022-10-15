@@ -7,6 +7,12 @@ Source Code is limited due to:
 Contact me on Linkedin/lironbiam for more information :)
 
 ##-- CHANGELOG --##
+v1.15
+Added MANUAL scan ability every 1h, AUTO SCANS now re-scan items that have been scanned over 4h ago, and are alert > 0.
+	Node-cron still checks everything every 10 min in case an item's scan failed due to an error.
+Added last scanned data to icon on-hover of each item
+EJS calculations and display of no. Total items & no. Tracked items on c-index f-index
+Minor CSS changes to properly implement the counter features
 
 v1.14
 Server sided changes
