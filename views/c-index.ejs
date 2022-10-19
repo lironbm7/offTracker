@@ -29,10 +29,12 @@
                     <span class="data-title"><%= clothings[i].title %></span>
                     <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
                     <% const today = new Date(); %>
-                    <% const datescanned = new Date(clothings[i].lastupdate); %>
-                    <% if(today.toDateString() == datescanned.toDateString()) { %>
+                    <% datescanned = new Date(clothings[i].lastupdate); %>
+                    <% diff = today - datescanned %>
+                    <!-- check if diff is less than 24 hours -->
+                    <% if(diff < 86400000) { %>
                         <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
-                    <% } else if(today.toDateString() != datescanned.toDateString()) { %>
+                    <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
                     <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
@@ -57,10 +59,12 @@
                     <span class="data-title"><%= clothings[i].title %></span>
                     <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
                     <% const today = new Date(); %>
-                    <% const datescanned = new Date(clothings[i].lastupdate); %>
-                    <% if(today.toDateString() == datescanned.toDateString()) { %>
+                    <% datescanned = new Date(clothings[i].lastupdate); %>
+                    <% diff = today - datescanned %>
+                    <!-- check if diff is less than 24 hours -->
+                    <% if(diff < 86400000) { %>
                         <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
-                    <% } else if(today.toDateString() != datescanned.toDateString()) { %>
+                    <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
                     <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
@@ -85,10 +89,12 @@
                     <span class="data-title"><%= clothings[i].title %></span>
                     <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
                     <% const today = new Date(); %>
-                    <% const datescanned = new Date(clothings[i].lastupdate); %>
-                    <% if(today.toDateString() == datescanned.toDateString()) { %>
+                    <% datescanned = new Date(clothings[i].lastupdate); %>
+                    <% diff = today - datescanned %>
+                    <!-- check if diff is less than 24 hours -->
+                    <% if(diff < 86400000) { %>
                         <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
-                    <% } else if(today.toDateString() != datescanned.toDateString()) { %>
+                    <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
                 </div>
