@@ -7,6 +7,14 @@ Source Code is limited due to:
 Contact me on Linkedin/lironbiam for more information :)
 
 ##-- CHANGELOG --##
+
+v1.16
+Ability to determine whether web scraper is active or not
+	if active, do not allow a parallel scanning activity besides for ADD NEW ITEM which doesnt overload the target server
+Modified ASOS selectors for better accuracy with discounts and price formatting 
+Red icon only shows on items that werent scanned in 24 Hours, rather than comparing date, which is invalid at 00:01 or similar.
+Added manual scan success log message
+
 v1.15
 Added MANUAL scan ability every 1h, AUTO SCANS now re-scan items that have been scanned over 4h ago, and are alert > 0.
 	Node-cron still checks everything every 10 min in case an item's scan failed due to an error.
