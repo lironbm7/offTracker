@@ -33,7 +33,7 @@
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
                     <% if(diff < 86400000) { %>
-                        <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
@@ -63,7 +63,7 @@
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
                     <% if(diff < 86400000) { %>
-                        <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
@@ -93,7 +93,7 @@
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
                     <% if(diff < 86400000) { %>
-                        <span class="updated" title="Scanned Today @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
                     <% } %>
