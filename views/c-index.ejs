@@ -2,10 +2,11 @@
 <head><title>Clothing Overview | offTracker</title></head>
 <div class="bottom-text">
     <% let activeitems = 0; %>
-        <% for(i = 0; i < clothings.length; i++) { %>
-            <% if(clothings[i].alert > 0) activeitems++; %>
-        <% } %>
-        <p>Total <%= clothings.length %> &nbsp; | &nbsp; Tracking <%= activeitems %></p>
+    <!-- 'Tracking' -->
+    <% for(i = 0; i < clothings.length; i++) { %>
+        <% if(clothings[i].alert > 0) activeitems++; %>
+    <% } %>
+    <p>Total <%= clothings.length %> &nbsp; | &nbsp; Tracking <%= activeitems %></p>
 </div>
 <div class="div-newitem">
     <span class="header-newitem" title="Add a new clothing item"><a href="/add-clothing" id="add"><i class="fa-solid fa-square-plus"></i></a></span>
@@ -32,7 +33,9 @@
                     <% datescanned = new Date(clothings[i].lastupdate); %>
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
-                    <% if(diff < 86400000) { %>
+                    <% if(diff < 3600000) { %>
+                        <span class="updated-now" title="Recently Scanned"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(diff < 86400000) { %>
                         <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
@@ -62,7 +65,9 @@
                     <% datescanned = new Date(clothings[i].lastupdate); %>
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
-                    <% if(diff < 86400000) { %>
+                    <% if(diff < 3600000) { %>
+                        <span class="updated-now" title="Recently Scanned"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(diff < 86400000) { %>
                         <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
@@ -92,7 +97,9 @@
                     <% datescanned = new Date(clothings[i].lastupdate); %>
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
-                    <% if(diff < 86400000) { %>
+                    <% if(diff < 3600000) { %>
+                        <span class="updated-now" title="Recently Scanned"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(diff < 86400000) { %>
                         <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else { %>
                         <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
