@@ -257,6 +257,10 @@ header ul li a#current-page {
     color: green;
 }
 
+.updated-now {
+    color: var(--highlight2);
+}
+
 .notupdated {
     color: red;
 }
