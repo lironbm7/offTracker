@@ -10,11 +10,7 @@
     <div class="frag-data">
         <form method="PUT" id="update_frag">
             <!-- hidden attributes that aren't changeable-->
-            <input type="hidden" name="id" value="<%= frag._id %>">
-            <input type="hidden" name="url" value="<%= frag.url %>">
-            <input type="hidden" name="rating" value="<%= frag.rating %>">
-            <input type="hidden" name="imgurl" value="<%= frag.imgurl %>">
-                
+            <input type="hidden" name="id" value="<%= frag._id %>">                
             <div class="frag-url">
                 <label for="designer">Designer</label>
                 <input type="text" name="designer" id="designer" value="<%= frag.designer %>" required 
