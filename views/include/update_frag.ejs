@@ -1,0 +1,56 @@
+<%- include('include/_f-header') %>
+<head><title>Update Fragrance | offTracker</title></head>
+<div class="f-body">
+    <!-- Header -->
+    <div class="form-title text-center">
+        <h2>Update Fragrance Data</h2>
+        <p>Edit the form below to modify fragrance information.</p>
+    </div>
+    <!-- Form / User input -->
+    <div class="frag-data">
+        <form method="PUT" id="update_frag">
+            <!-- hidden attributes that aren't changeable-->
+            <input type="hidden" name="id" value="<%= frag._id %>">                
+            <div class="frag-url">
+                <label for="designer">Designer</label>
+                <input type="text" name="designer" id="designer" value="<%= frag.designer %>" required 
+                placeholder="Designer / House">
+                <label for="designer">Fragrance Name</label>
+                <input type="text" name="title" id="title" value="<%= frag.title %>" required 
+                placeholder="Title / Name">
+            </div>
+            <div>
+                <label for="ownership" id="title">Status</label>
+                <div class="radio">
+                    <input type="radio" name="ownership" id="radio-1" value="own" required
+                    <%= frag.ownership == 'own' ? 'checked' : '' %>>
+                    <label for="radio-1" class="radio-label">I already have it</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="ownership" id="radio-2" value="want"
+                    <%= frag.ownership == 'want' ? 'checked' : '' %>>
+                    <label for="radio-2" class="radio-label">I want to buy it</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="ownership" id="radio-3" value="test"
+                    <%= frag.ownership == 'test' ? 'checked' : '' %>>
+                    <label for="radio-3" class="radio-label">I want to test it</label>
+                </div>
+            </div>
+            
+            <hr>
+
+            <div class="optional-container">
+                <p id="optional-header">(Optional)</p>
+                <div>
+                    <label for="link">Purchase Link:</label>
+                    <input type="url" name="link" id="link" value="<%= frag.link %>">
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="btn" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('include/_footer') %>
