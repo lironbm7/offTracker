@@ -33,7 +33,7 @@
                     <% datescanned = new Date(clothings[i].lastupdate); %>
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
-                    <% if(diff < 3600000) { %>
+                    <% if(diff < 1800000) { %>
                         <span class="updated-now" title="Recently Scanned"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else if(diff < 86400000) { %>
                         <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
@@ -65,7 +65,7 @@
                     <% datescanned = new Date(clothings[i].lastupdate); %>
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
-                    <% if(diff < 3600000) { %>
+                    <% if(diff < 1800000) { %>
                         <span class="updated-now" title="Recently Scanned"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else if(diff < 86400000) { %>
                         <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
@@ -97,7 +97,7 @@
                     <% datescanned = new Date(clothings[i].lastupdate); %>
                     <% diff = today - datescanned %>
                     <!-- check if diff is less than 24 hours -->
-                    <% if(diff < 3600000) { %>
+                    <% if(diff < 1800000) { %>
                         <span class="updated-now" title="Recently Scanned"> <i class="fa-solid fa-calendar-check"></i></span>
                     <% } else if(diff < 86400000) { %>
                         <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
