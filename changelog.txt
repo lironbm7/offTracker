@@ -53,3 +53,14 @@ v1.13
 Added 'Zara' target website
 Took Factory54's Mobile website layout into consideration as querySelectors vary between desktop and mobile
  sometimes when used headless / small browser, pics loaded in diff xpath/selector ids, fixed this
+
+
+v1.14 - v1.15
+Added 'Terminal X'
+Added 'Jack Monsonego'
+
+v1.16 - v1.18
+Added 'Platin'
+Added 'April'
+Added 'Craiser'
+Changed the ms interval for scanned item icons (recently/at HOUR:MINUTE)
