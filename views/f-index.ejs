@@ -2,7 +2,7 @@
 <head><title>Fragrance Overview | offTracker</title></head>
 <div class="bottom-text"><p>Total <%= frags.length %> fragrances</p></div>
 <div class="header-newitem"><a title="Add new fragrance" href="/add-frag"><i class="fa-solid fa-square-plus"></i></a></div>
-<div class="grid-title">Fragrances I own <i class="fa-solid fa-check"></i></div>
+<div class="grid-title">MY FRAGRANCES <i class="fa-solid fa-check"></i></div>
 <div class="prod-grid">
     <% for(let i = frags.length-1; i >= 0; i--) { %>
         <% if(frags[i].ownership == "own") { %>
@@ -25,7 +25,7 @@
     <% } %>
 </div>
 
-<div class="grid-title">Fragrances I want <i class="fa-solid fa-cart-shopping"></i></div>
+<div class="grid-title">WISH LIST <i class="fa-solid fa-cart-shopping"></i></div>
 <div class="prod-grid">
     <% for(let i = frags.length-1; i >= 0; i--) { %>
         <% if(frags[i].ownership == "want") { %>
@@ -48,7 +48,7 @@
     <% } %>
 </div>
 
-<div class="grid-title">Fragrances to test <i class="fa-solid fa-star"></i></div>
+<div class="grid-title">FRAGRANCES TO TEST <i class="fa-solid fa-star"></i></div>
 <div class="prod-grid">
     <% for(let i = frags.length-1; i >= 0; i--) { %>
         <% if(frags[i].ownership == "test") { %>
