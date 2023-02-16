@@ -87,6 +87,20 @@ Clothing items will be scanned and updated and displayed in the index page. In o
 | `timeout: 20000` | Time in ms from when search for an element has begun until skipping to next item due to failure
 
 
+websiteMap Object used for Form Validation
+```javascript
+const websiteMap = {
+    'Asos': 'asos.com',
+    'Factory54': 'factory54.co.il',
+    'ExampleWebsite': 'example.website'
+};
+```
+
+Assigning the Object Key as the targetSite so the program knows which query selectors to address when scraping
+```javascript
+const targetSite = Object.keys(websiteMap).find(site => url.includes(websiteMap[site]));
+```
+
 ```javascript
 case 'ExampleWebsite':
     data_imgurl = await page.evaluate(() => {
@@ -101,15 +115,6 @@ case 'ExampleWebsite':
         return `₪ ${path}`
     })
     break;
-```
-
-
-```javascript
-const websiteMap = {
-    'Asos': 'asos.com',
-    'Factory54': 'factory54.co.il',
-    'ExampleWebsite': 'example.website'
-};
 ```
 
 ## Contributing
