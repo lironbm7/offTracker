@@ -1,0 +1,84 @@
+<%- include('include/_f-header') %>
+<head><title>Fragrance Overview | offTracker</title></head>
+<div class="bottom-text"><p>Total <%= frags.length %> fragrances</p></div>
+<div class="header-newitem"><a title="Add new fragrance" href="/add-frag"><i class="fa-solid fa-square-plus"></i></a></div>
+<div class="grid-title">MY FRAGRANCES <i class="fa-solid fa-check"></i></div>
+<div class="prod-grid">
+    <% for(let i = frags.length-1; i >= 0; i--) { %>
+        <% if(frags[i].ownership == "own") { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= frags[i].url %>" title="Open link in new tab" target="_blank"><img src="<%= frags[i].imgurl %>"></a>
+                    <div class="icon-edit"><a title="Edit" href="/update-frag?id=<%= frags[i]._id%>"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= frags[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-designer"><%= frags[i].designer %></span>
+                    <span class="data-name"><%= frags[i].title %></span>
+                    <span class="data-rating">(<%= frags[i].rating %> / 5)</span>
+                    <% if(frags[i].link != "") { %>
+                        <span class="data-link"><a href="<%= frags[i].link %>">Buy Again</a></span>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<div class="grid-title">WISH LIST <i class="fa-solid fa-cart-shopping"></i></div>
+<div class="prod-grid">
+    <% for(let i = frags.length-1; i >= 0; i--) { %>
+        <% if(frags[i].ownership == "want") { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= frags[i].url %>" title="Open link in new tab" target="_blank"><img src="<%= frags[i].imgurl %>"></a>
+                    <div class="icon-edit"><a title="Edit" href="/update-frag?id=<%= frags[i]._id%>"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= frags[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-designer"><%= frags[i].designer %></span>
+                    <span class="data-name"><%= frags[i].title %></span>
+                    <span class="data-rating">(<%= frags[i].rating %> / 5)</span>
+                    <% if(frags[i].link != "") { %>
+                        <span class="data-link"><a href="<%= frags[i].link %>">Purchase</a></span>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<div class="grid-title">FRAGRANCES TO TEST <i class="fa-solid fa-star"></i></div>
+<div class="prod-grid">
+    <% for(let i = frags.length-1; i >= 0; i--) { %>
+        <% if(frags[i].ownership == "test") { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= frags[i].url %>" title="Open link in new tab" target="_blank"><img src="<%= frags[i].imgurl %>"></a>
+                    <div class="icon-edit"><a title="Edit" href="/update-frag?id=<%= frags[i]._id%>"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= frags[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <div class="data-designer">
+                        <%= frags[i].designer %>
+                    </div>
+                    <div class="data-name">
+                        <%= frags[i].title %>
+                    </div>
+                    <div class="data-rating">
+                        (<%= frags[i].rating %> / 5)
+                    </div>
+                    <% if(frags[i].link != "") { %>
+                        <div class="data-link">
+                            <a href="<%= frags[i].link %>">Purchase</a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+<div class="bottom-text">
+    <a id="bottom-text" href="#top"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+</div>
+<%- include('include/_footer') %>

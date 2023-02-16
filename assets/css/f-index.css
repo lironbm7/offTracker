@@ -1,0 +1,218 @@
+/* Button colorings */
+.nav__links li a:hover {
+    color: var(--highlight);
+}
+
+header button {
+    padding: 9px 5px;
+    background-color: var(--highlight);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+header button:hover {
+    background-color: var(--btn-hover);
+}
+
+header ul li a#current-page {
+    color: var(--highlight);
+}
+
+.header-newitem {
+    text-align: center;
+    display: block;
+    margin-top: 24px;
+}
+
+.header-newitem a {
+    color: var(--highlight);
+    font-weight: bold;
+    font-size: 40px;
+    transition: all 0.4s ease 0s;
+}
+
+.header-newitem a:hover {
+    color: var(--btn-hover);   
+    font-size: 44px; 
+}
+
+/* GRID */
+
+.grid-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 1.0em 0em 1.3em 0em;
+    color: #444;
+}
+
+.prod-grid {
+    margin: auto;
+    max-width: 1200px;
+    padding: 40px 20px 40px 20px;
+    background: rgba(247, 247, 247, 0.667);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 2em;
+    border-radius: 25px;
+    justify-items: center;
+}
+
+.prod-box {
+    position: relative;
+    width: 190px;
+    outline-color: #f5f5f5;
+    margin: 0 14px 0 14px;
+    outline-width: 1px;
+    outline-style: solid;
+    border-radius: 8px;
+}
+
+.prod-img a img {
+    width: 190px;
+    height: 260px;
+    outline-color: rgba(240, 240, 240, 0.65);
+    outline-width: 3px;
+    outline-style: solid;   
+    transition: all 0.4s ease 0s;
+    border-radius: 4px;
+}
+
+@media (max-width: 1200px) {
+    .prod-grid {
+        min-width: 860px;
+        /* max-width: 1165px; */
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 900px) {
+    .prod-grid {
+        min-width: 580px;
+        /* max-width: 800px; */
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 685px) {
+    .prod-grid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        min-width: 375px;
+        max-width: 685px;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    .prod-box {
+        width: 160px;
+        padding: 0 0 0 0;
+        margin: 0;
+    }
+    .prod-img a img {
+        width: 160px;
+        height: 210px;
+    }
+    .prod-img {
+        width: 160px;
+    }
+}
+
+
+
+.prod-img a img:hover {
+    outline-color: var(--highlight);
+    outline-width: 3px;
+    outline-style: solid;    
+}
+
+.prod-img {
+    position: relative;
+}
+
+/* INTERACTIVE ICONS */
+.prod-img .icon-edit {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.prod-img .icon-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.prod-img .icon-delete a, .prod-img .icon-edit a {
+    /* dont appear when not hovering img */
+    opacity: 0;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+.prod-img a:hover ~ .icon-edit a, .icon-edit a:hover,
+.prod-img a:hover ~ .icon-delete a, .icon-delete a:hover {
+    opacity: 1;
+}
+
+.icon-delete a:hover, .icon-edit a:hover {
+    color: var(--highlight);
+    font-size: 1.1rem;
+}
+
+/* DATA */
+.data-designer, .data-name, .data-rating, .data-link {
+    display: block;
+}
+
+.prod-data {
+    text-align: center;
+    padding: 6px 6px 16px 6px;
+}
+
+
+.data-designer {
+    font-weight: bold;   
+    font-size: 16px;
+    margin: 4px 0 4px 0;
+}
+
+.data-rating {
+    font-size: 15px;
+    color: #555;
+    margin: 4px 0 2px 0;
+}
+
+.data-link a {
+    font-size: 14px;
+    color: #666;
+    transition: all 0.3s ease 0s;
+}
+
+.data-link a:hover {
+    font-size: 15px;
+    color: var(--highlight)
+}
+
+
+/* Jump to top */
+.bottom-text, a#bottom-text{
+    text-align: center;
+    margin: 1.3em 0em 1.3em 0em;
+    color: #818181fd;
+    transition: all 0.3s ease 0s;
+}
+
+.bottom-text p {
+    cursor: default;
+}
+
+.bottom-text a {
+    cursor: pointer; 
+}
+
+a#bottom-text:hover {
+    color: var(--highlight2);
+}

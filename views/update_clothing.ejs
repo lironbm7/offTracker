@@ -1,0 +1,33 @@
+<%- include('include/_c-header') %>
+<head><title>Update Clothing | offTracker</title></head>
+<div class="f-body">
+    <div class="form-title text-center">
+        <h2>Update Clothing Item</h2>
+        <p>Fill the form below to update a clothing item</p>
+    </div>
+    <div class="clothing-data">
+        <form method="PUT" id="update_clothing">
+            <input type="hidden" name="id" value="<%= clothing._id %>">
+            <div class="clothing-url">
+                <label for="designer">Designer</label>
+                <input type="text" name="designer" id="designer" value="<%= clothing.designer %>" autocomplete="off" required 
+                placeholder="AMIRI, VALENTINO, DSQUARED2..">
+
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="<%= clothing.title %>" autocomplete="off" required>
+
+                <label for="alert">Alert Under</label>
+                <input type="number" name="alert" id="alert" value="<%= clothing.alert %>" autocomplete="off" required 
+                placeholder="<%= clothing.fprice %>">
+
+                <p id="optional-header">* When set to 0 (zero), item will <b>not</b> be included in scans and only be shown at the bottom of the page.</p>
+
+            </div>
+            
+            <div class="btn-row">
+                <button class="btn" type="submit" id="btn-submit">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('include/_footer') %>

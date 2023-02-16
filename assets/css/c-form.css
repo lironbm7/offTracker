@@ -1,0 +1,137 @@
+.f-body {
+    background: rgba(238, 238, 238, 0.667);
+    width: 420px;
+    margin: 40px auto;
+    padding: 4px 26px;
+    border-radius: 6px;
+    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Div of header text */
+.form-title {
+    width: 100%;
+    background-color: #ffffff65;
+    padding: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    outline-color: var(--highlight2);
+    outline-width: 3px;
+    outline-style: solid;
+    box-shadow: 2px 8px 10px 1px rgba(0, 0, 0, 0.075);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.form-title > h2 {
+    margin: 14px 0;
+}
+
+.form-title > p {
+    color: #888;
+    margin: 14px 0;
+    font-size: 16px;
+}
+
+/* Input boxes */
+input[type="text"], input[type="url"], input[type="number"] {
+    width: 100%;
+    padding: 12px 0px 12px 10px;
+    margin: 4px 0;
+    border: 1px solid #ddd;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    border-radius: 8px; 
+}
+
+input#url {
+    margin-bottom: 14px;
+}
+
+/* Radio buttons */
+/* remove default radio button to create custom */
+.radio input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* create custom empty radio boxes */
+.radio input[type='radio'] + .radio-label:before {
+    content: "";
+    background: #ffffff6d;
+    border-radius: 100%;
+    border:1px solid #ccc;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    /* position and top for the POINTER cursor on hover */
+    position: relative;
+    top: -0em;
+    vertical-align: top;
+    cursor: pointer;
+    /* animation */
+    -webkit-transition: all 250ms ease;
+    transition: all 250ms ease;
+}
+
+/* create colored (selected) radio boxes */
+.radio input[type='radio']:checked + .radio-label:before {
+    background-color: var(--highlight2);
+    box-shadow: inset 0 0 0 4px;
+}
+
+.radio input[type='radio']:focus + .radio-label:before {
+    outline: none;
+    border-color: var(--highlight2);
+}
+
+.radio input[type='radio']:disabled + .radio-label:before {
+    box-shadow: inset 0 0 0 4px #e9ecef;
+    border-color: #b4b4b4;
+    background: #b4b4b4;
+}
+
+/* styling of the radio labels */
+div.radio {
+    margin: 8px 0px 8px 0px;
+}
+
+/* Line seperation */
+hr {    
+    border-top: #ffffff 1px solid;
+    margin: 14px 0;
+}
+
+/* Optional header text */
+p#optional-header {
+    margin: 0;
+    margin-bottom: 8px;
+    color: rgb(160, 160, 160);
+    font-size: 16px;   
+}
+
+.optional-container label {
+    color: rgb(160, 160, 160);
+}
+
+/* Button section */
+.btn-row .btn {
+    width: 100%;
+    padding: 14px 8px;
+    background-color: var(--highlight2);
+    border: none;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 16px 0;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-row .btn:hover {
+    background-color: var(--btn-hover2);
+}

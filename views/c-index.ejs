@@ -1,0 +1,114 @@
+<%- include('include/_c-header') %>
+<head><title>Clothing Overview | offTracker</title></head>
+<div class="div-newitem">
+    <span class="header-newitem"><a href="/add-clothing" id="add" title="Add a new clothing item"><i class="fa-solid fa-square-plus"></i></a></span>
+    <span class="header-newitem"><a id="scan" title="Scan for price changes"><i class="fa-solid fa-sync"></i></a></span>
+</div>
+<div class="bottom-text">
+    <% let activeitems = 0; %>
+    <% for(i = 0; i < clothings.length; i++) { %>
+        <% if(clothings[i].alert > 0) activeitems++; %>
+    <% } %>
+    <% let salecount = 0; %>
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if(clothings[i].fprice < clothings[i].alert) salecount++; %>
+    <% } %>
+    <p>Total: <%= clothings.length %> &nbsp; | &nbsp; Tracking: <%= activeitems %> &nbsp; | &nbsp; Alerts: <%= salecount %></p>
+</div>
+
+<!-- <div class="grid-title"><%= salecount %> SALE ALERTS <i class="fa-solid fa-tag"></i></div> -->
+<div class="prod-grid">
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if(clothings[i].fprice < clothings[i].alert) { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= clothings[i].url %>" title="Open item in new tab" target="_blank"><img src="<%= clothings[i].imgurl %>"></a>
+                    <div class="icon-edit"><a href="/update-clothing?id=<%= clothings[i]._id%>" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= clothings[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-discount"><%= (parseFloat(1-(clothings[i].fprice / clothings[i].alert))*100).toFixed(0)%>% OFF</span>
+                    <span class="data-designer"><%= clothings[i].designer %></span>
+                    <span class="data-title"><%= clothings[i].title %></span>
+                    <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
+                    <% const today = new Date(); %>
+                    <% datescanned = new Date(clothings[i].lastupdate); %>
+                    <% diff = today - datescanned %>
+                    <% if(diff < 1800000) { %>
+                        <span class="updated-now" title="Just Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'Asia/Jerusalem'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(diff < 86400000) { %>
+                        <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'Asia/Jerusalem'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else { %>
+                        <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                    <% } %>
+                    <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<!-- <div class="grid-title">BEING TRACKED <i class="fa-solid fa-bell"></i></div> -->
+<div class="prod-grid">
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if((clothings[i].fprice >= clothings[i].alert) && (clothings[i].alert > 0)) { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= clothings[i].url %>" title="Open item in new tab" target="_blank"><img src="<%= clothings[i].imgurl %>"></a>
+                    <div class="icon-edit"><a href="/update-clothing?id=<%= clothings[i]._id%>" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= clothings[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-designer"><%= clothings[i].designer %></span>
+                    <span class="data-title"><%= clothings[i].title %></span>
+                    <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
+                    <% const today = new Date(); %>
+                    <% datescanned = new Date(clothings[i].lastupdate); %>
+                    <% diff = today - datescanned %>
+                    <% if(diff < 1800000) { %>
+                        <span class="updated-now" title="Just Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'Asia/Jerusalem'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(diff < 86400000) { %>
+                        <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'Asia/Jerusalem'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else { %>
+                        <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                    <% } %>
+                    <span class="alert-under">(ALERT @ <%= clothings[i].alert %>)</span>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<div class="grid-title">TRACKING PAUSED <i class="fa-solid fa-bell-slash"></i></div>
+<div class="prod-grid">
+    <% for(let i = clothings.length-1; i >= 0; i--) { %>
+        <% if(clothings[i].alert <= 0) { %>
+            <div class="prod-box">
+                <div class="prod-img">
+                    <a href="<%= clothings[i].url %>" title="Open item in new tab" target="_blank"><img src="<%= clothings[i].imgurl %>"></a>
+                    <div class="icon-edit"><a href="/update-clothing?id=<%= clothings[i]._id%>" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a></div>
+                    <div class="icon-delete"><a title="Delete" data-id=<%= clothings[i]._id%>><i class="fa-regular fa-trash-can"></i></a></div>
+                </div>
+                <div class="prod-data">
+                    <span class="data-designer"><%= clothings[i].designer %></span>
+                    <span class="data-title"><%= clothings[i].title %></span>
+                    <span class="data-site"><%= clothings[i].site %> •</span><span class="data-price"><b> <%= clothings[i].price %> </b> </span>
+                    <% const today = new Date(); %>
+                    <% datescanned = new Date(clothings[i].lastupdate); %>
+                    <% diff = today - datescanned %>
+                    <% if(diff < 1800000) { %>
+                        <span class="updated-now" title="Just Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'Asia/Jerusalem'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else if(diff < 86400000) { %>
+                        <span class="updated" title="Scanned @ <%= datescanned.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'Asia/Jerusalem'}) %>"> <i class="fa-solid fa-calendar-check"></i></span>
+                    <% } else { %>
+                        <span class="notupdated" title="Last Scanned <%= datescanned.toLocaleDateString('en-GB') %>"> <i class="fa-solid fa-calendar-xmark"></i></span>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+<div class="bottom-text">
+    <a id="bottom-text"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+</div>
+<%- include('include/_footer') %>

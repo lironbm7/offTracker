@@ -1,0 +1,172 @@
+/* Global Header */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
+
+/* formatting boundaries */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply this to everything */
+body {
+    background: #ffffff;
+    font-family: 'Barlow', sans-serif;
+
+}
+
+/* Variables */
+:root{
+    --highlight: #37d3ef;
+    --btn-hover: #8edcdc;
+    --highlight2: #ffa01c;
+    --btn-hover2: #ffb856;
+}
+
+header {
+    margin-top: 80px;
+}
+
+header, .github { 
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+li, a, .github {
+    text-decoration: none;
+    color: #000
+}
+
+ul {
+    list-style-type: none;
+}
+
+.github {
+    right: 0;
+}
+
+header .nav{
+    display: flex;
+    max-width: 1230px;
+    max-height: 20px;
+    margin: 36px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content:space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    background-color: rgb(250, 250, 250);
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    border-radius: 25px;
+}
+
+.logo {
+    cursor: pointer;
+    width: 300px;   
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+#current-page {
+    cursor: default;
+}
+
+::placeholder {
+    color: #bbb;
+}
+
+@media (max-width: 800px) {
+
+    .github {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 566px) {
+    ul.nav__links li {
+        display: block;
+    }
+}
+
+.hamburger-menu {
+    display: none;
+  }
+
+.nav__mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav__links {
+        display: none;
+    }
+
+    header > div > a.github {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .hamburger-menu__line {
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        border-radius: 10px;
+    }
+
+    .nav__mobile-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav__mobile-menu li {
+        margin: 10px 0;
+    }
+
+    .nav__mobile-menu a {
+        color: #000;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+
+    header .nav .logo {
+        left: 0;
+        
+    }
+}

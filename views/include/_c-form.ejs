@@ -1,0 +1,29 @@
+<div class="clothing-data">
+    <form action="/api/clothings" method="POST" id="add_clothing">
+        <div class="clothing-url">
+            <label for="url">Item URL</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="url" id="url" value="" autocomplete="off" required 
+            placeholder="https://www.factory54.co.il/..">
+            <p id="optional-header">* Currently available websites are:</p>
+            <p id="optional-header">Asos, Factory54, BenMenWear, Diesel, Ricco, Zara, Terminal X, Jack Monsonego, Platin Express, April, Craiser, KSP</p>
+        </div>
+        <hr>
+
+        <div class="optional-container">
+            <p id="optional-header">(Optional)</p>
+            <div>
+                <label for="palert">Alert below price</label>
+                <input type="number" name="palert" id="palert" autocomplete="off"
+                placeholder="1250" value="">
+                <p id="optional-header">* Auto-set as current price if left blank.</p>
+                <p id="optional-header">* If target site uses ILS, field refers to ILS price.</p>
+                <p id="optional-header">* When set to 0 (zero), item will <b>not</b> be included in scans and only be shown at the bottom of the page.</p>
+            </div>
+        </div>
+        <div class="btn-row">
+            <button class="btn" type="submit" id="btn-submit">Save</button>
+        </div>
+    </form>
+</div>
+</div>
