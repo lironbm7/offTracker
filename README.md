@@ -41,7 +41,7 @@ Instead of the client manually checking several products on different websites e
 Clone the repository to your local machine
 
 ```bash
-git clone https://github.com/yourusername/offtracker.git
+git clone git@github.com:lironbm7/offTracker.git
 ```
 Install the required dependencies
 ```bash
