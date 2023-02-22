@@ -1,7 +1,7 @@
 
 # offTracker - Discounted Online Shopping Solution
 
-Track discounts on favorite items across the web using scraping methods and an interactive dashboard.
+Track discounts of favorite items across the web using scraping methods and an interactive dashboard.
 
 ![Index](https://i.imgur.com/dwxe7J4.png)
 
