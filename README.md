@@ -3,7 +3,7 @@
 
 Track discounts of favorite items across the web using scraping methods and an interactive dashboard.
 
-Demo Deployed @ https://offtracker.herokuapp.com/ (using my own database, without Guest CRUD permissions)
+Demo Client Deployed @ https://offtracker.herokuapp.com/ (using my own database, without CRUD / Scraping permissions)
 
 ![Index](https://i.imgur.com/dwxe7J4.png)
 
