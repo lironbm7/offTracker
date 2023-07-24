@@ -1,6 +1,7 @@
 
 # offTracker - Discounted Online Shopping Solution
 ### Guest Client Deployed @ https://offtracker.herokuapp.com/
+### This repository is months behind the deployed offTracker and serves as an un-synchronized template
 
 Track discounts of favorite items across the web using scraping methods and an interactive dashboard.
 
